@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo App</title>
+
+<!-- .................      ............style............................          ......... -->
+<style>
+
+    button {
+        padding: 5px 10px;
+        background-color: #4CAF50; 
+        border: none;
+        color: white;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    .delete {
+        padding: 3px 5px;
+        background-color: #f44336; 
+        border: none;
+        color: white;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+
+    input {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+</style>
+</head>
+<body>
+<h1>Todo App</h1>
+<input placeholder="enter task"> <button> Add Task</button>
+<ul>
+
+</ul>
+
+
+<!-- .......                 ......................script............     ................... -->
+<script>
+let add = document.querySelector("button")
+let ul = document.querySelector("ul")
+let ip = document.querySelector("input")
+
+add.addEventListener("click", function(){
+let item = document.createElement("li");
+item.innerText = ip.value;
+
+
+let del = document.createElement("button");
+del.innerHTML = "X"
+del.classList.add("delete")
+
+item.appendChild(del)
+ul.appendChild(item)
+ip.value = "";
+
+});
+
+ul.addEventListener("click", function(){
+    if(event.target.nodeName = "BUTTON"){
+        let listItem = event.target.parentElement;
+        listItem.remove();
+    }
+})
+
+ip.addEventListener("keydown", function(event){
+    if(event.keyCode === 13 ){
+        let item = document.createElement("li");
+item.innerText = ip.value;
+
+
+let del = document.createElement("button");
+del.innerHTML = "X"
+del.classList.add("delete")
+
+item.appendChild(del)
+ul.appendChild(item)
+ip.value = "";
+    }
+});
+
+</script>
+</body>
+</html>
