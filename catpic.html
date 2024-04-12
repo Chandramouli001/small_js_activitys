@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prac</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      background-color: #f0f0f0;
+      height: auto;
+      width: auto;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    #pic{
+      width: 400px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Get a Random Cat Photo</h1>
+    <button>Show a Random Picture</button>
+    
+    <div id="box">
+      <br>
+      <img id="pic">
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+  <script src="./app.js"></script>
+  <script>
+  
+ 
+
+const API_KEY = 'api_key=live_j46Eob1s18nexW63phf4iJsHuw9tnKSczQ4XYZN2WsQtoynwCanu8q4sbZGDWw3M';
+
+const url = `https://api.thecatapi.com/v1/images/search?${API_KEY}`;
+
+async function fetchCatImage() {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        const imageUrl = data[0].url;
+        return imageUrl;
+    } catch (error) {
+        console.error('There was a problem with the request:', error);
+        return null;
+    }
+}
+
+
+let btn = document.querySelector("button");
+btn.addEventListener("click", async ()=>{
+    let link = await fetchCatImage();
+    let img = document.querySelector("#pic")
+    img.setAttribute("src", link)
+  });
+
+  </script>
+</body>
+</html>
