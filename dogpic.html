@@ -39,25 +39,25 @@
   <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
   <script src="./app.js"></script>
   <script>
-    
 
+  
     let btn = document.querySelector("button");
-    let url = "https://dog.ceo/api/breeds/image/random";
     btn.addEventListener("click", async ()=>{
-      let link = await image();
-      let img = document.querySelector("#pic")
-      img.setAttribute("src", link)
-    });
-
-    async function image(){
-      try{
-        let res = await axios.get(url)
-        return res.data.message;
-      }catch(err){
-        console.log("errpe =",err)
-        return"/"
+        let link = await getShibes();
+        let img = document.querySelector("#pic")
+        img.setAttribute("src", link)
+      });
+    
+    async function getShibes() {
+        const url = `https://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true`;
+      
+        const response = await fetch(url);
+        const data = await response.json();
+      
+        console.log(data);
+        return data;
       }
-    }
+
 
   </script>
 </body>
