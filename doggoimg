@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prac</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      background-color: #f0f0f0;
+      height: auto;
+      width: auto;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    #pic{
+      width: 400px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Get a Random Doggo Dada Photo</h1>
+    <button>Show a Doggo</button>
+    
+    <div id="box">
+      <br>
+      <img id="pic">
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+  <script src="./app.js"></script>
+  <script>
+  
+    let btn = document.querySelector("button");
+    btn.addEventListener("click", async ()=>{
+        let link = await getShibes(1);
+        let img = document.querySelector("#pic")
+        img.setAttribute("src", link)
+      });
+    
+    async function getShibes(count) {
+        const url = `http://shibe.online/api/shibes?count=${count}&urls=true&httpsUrls=true`;
+      
+        const response = await fetch(url);
+        const data = await response.json();
+      
+        console.log(data);
+        return data;
+      }
+
+  </script>
+</body>
+</html>
