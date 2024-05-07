@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="h">click the btn! </h1>
+        <button id="rbtn">Button</button>
+    </div>
+
+    <script>
+        let arr = [];
+        var ran;
+
+        function random() {
+            if (arr.length >= 10) {
+                console.log("maximum value over")
+                return;
+            }
+
+            ran = Math.floor(Math.random() * 10) + 1;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === ran) {
+                    random()
+                    return;
+                }
+            }
+            arr.push(ran);
+            console.log("num = ", ran);
+            console.log(arr);
+        }
+
+
+        let btn = document.querySelector("button");
+
+        btn.addEventListener("click", function () {
+            let h = document.querySelector("h1");
+            random();
+            if (arr.length >= 10) {
+                h.innerText = "Maximum value reached";
+            } else {
+                h.innerText = ran;
+            }
+        });
+
+    </script>
+</body>
+
+</html>
