@@ -4,88 +4,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random</title>
+    <title>Tandom Task Chooser</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
             background-color: #f4f4f4;
         }
 
-        .container {
-            text-align: center;
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
+        input[type="text"] {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         button {
-            font-size: 1.5em;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
+            padding: 8px 16px;
+            margin: 5px;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
             transition: background-color 0.3s;
-            margin-top: 20px;
-            margin-bottom: 20px;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #0056b3;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1 id="h">click the btn! </h1>
-        <button id="rbtn">Button</button>
-    </div>
-
+    <form>
+        <input type="text" id="ip" placeholder="Enter task">
+        <button type="submit" id="sub">Submit</button>
+        <button id="find" type="button">Find Random Task</button>
+        <h1 id="h1">Task</h1>
+        <button id="rst" style="display: none;" type="button">Restart</button>
+    </form>
     <script>
-        let arr = [];
-        var ran;
+// Define variables
+var arr = [];
+var carr =[]
+var ip = document.getElementById("ip");
+var sub = document.getElementById("sub");
+var find = document.getElementById("find");
+var print = document.getElementById("h1")
+var rst = document.getElementById("rst")
+var ran = 0;
+var value;
+// Event listener for adding tasks
+sub.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent form submission
+    arr.push(ip.value); // Add input value to the array
+    carr.push(ip.value);
+    ip.value = ''; // Clear input field
+});
 
-        function random() {
-            if (arr.length >= 10) {
-                console.log("maximum value over")
-                return;
-            }
+// Function to pick a random task
+function random() {
+    var len = arr.length; // Get the length of the tasks array
+    if (len === 0) { // Check if the array is empty
+        value = "No more tasks remaining.";
+        rstbtn();
+        console.log(value);
+        return;
+    }
+    ran = Math.floor(Math.random() * len); // Generate a random index
+    var task = arr.splice(ran, 1)[0]; // Remove and get the task at the random index
+    value = task
+    console.log("Random task:", value);
+    console.log("og arr : ",arr,"dp arr :",carr)
+}
 
-            ran = Math.floor(Math.random() * 10) + 1;
-            for (let i = 0; i < arr.length; i++) {
-                if (arr[i] === ran) {
-                    random()
-                    return;
-                }
-            }
-            arr.push(ran);
-            console.log("num = ", ran);
-            console.log(arr);
-        }
+// Event listener for finding and removing a random task
+find.addEventListener("click", function (event) {
+    random(); // Call the random function to pick a task
+    console.log("Remaining tasks:", arr); // Log the updated tasks array
+    print.innerText = value;
+});
 
-
-        let btn = document.querySelector("button");
-
-        btn.addEventListener("click", function () {
-            let h = document.querySelector("h1");
-            random();
-            if (arr.length >= 10) {
-                h.innerText = "Maximum value reached";
-            } else {
-                h.innerText = ran;
-            }
-        });
-
-    </script>
+function rstbtn(){
+    rst.style.display = "block"
+    rst.addEventListener("click", function(){
+        console.log("working")
+        arr = [...carr] 
+        rst.style.display = "none"
+        print.innerText = "find again !"
+    })
+}
+</script>
 </body>
 
 </html>
