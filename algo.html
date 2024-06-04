@@ -6,74 +6,91 @@
     <title>Algorithms</title>
     <style>
         body {
+            background-color: #111;
+            color: #fff;
             font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #FFFFFF;
             padding: 20px;
         }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .code {
-            background-color: #212121;
-            color: #CCCCCC;
+        nav {
+            background-color: #222;
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 20px;
         }
-        
-        .toggle-btn {
-            background-color: #FFFFFF;
-            color: #000000;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
         }
-        
-        pre {
-            white-space: pre-wrap;
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .code-snippet {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Algorithms</h1>
-        
-        <div class="code" id="quick-sort">
-            <h2>Quick Sort</h2>
-            <pre>
-                <code class="language-c">
-                    // Quick sort code in C
-                </code>
-            </pre>
-        </div>
-        
-        <div class="code" id="merge-sort">
-            <h2>Merge Sort</h2>
-            <pre>
-                <code class="language-c">
-                    // Merge sort code in C
-                </code>
-            </pre>
-        </div>
-        
-        <!-- Add other algorithms here -->
-        
-        <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-    </div>
-    
-    <script>
-        function toggleDarkMode() {
-            const body = document.body;
-            body.classList.toggle('dark-mode');
+
+<nav>
+    <ul>
+        <li><a href="#" onclick="showCode('quickSort')">Quick Sort</a></li>
+        <li><a href="#" onclick="showCode('mergeSort')">Merge Sort</a></li>
+        <li><a href="#" onclick="showCode('knapsack')">0/1 Knapsack</a></li>
+        <li><a href="#" onclick="showCode('floydWarshall')">Floyd Warshall</a></li>
+        <li><a href="#" onclick="showCode('strassen')">Strassen's Algorithm</a></li>
+        <li><a href="#" onclick="showCode('tsp')">TSP</a></li>
+        <li><a href="#" onclick="showCode('matrixChain')">Matrix Chain Multiplication</a></li>
+        <li><a href="#" onclick="showCode('nQueen')">N Queen</a></li>
+    </ul>
+</nav>
+
+<div id="quickSort" class="code-snippet">
+    <!-- Quick Sort code snippet in C -->
+</div>
+
+<div id="mergeSort" class="code-snippet">
+    <!-- Merge Sort code snippet in C -->
+</div>
+
+<div id="knapsack" class="code-snippet">
+    <!-- 0/1 Knapsack code snippet in C -->
+</div>
+
+<div id="floydWarshall" class="code-snippet">
+    <!-- Floyd Warshall code snippet in C -->
+</div>
+
+<div id="strassen" class="code-snippet">
+    <!-- Strassen's Algorithm code snippet in C -->
+</div>
+
+<div id="tsp" class="code-snippet">
+    <!-- TSP code snippet in C -->
+</div>
+
+<div id="matrixChain" class="code-snippet">
+    <!-- Matrix Chain Multiplication code snippet in C -->
+</div>
+
+<div id="nQueen" class="code-snippet">
+    <!-- N Queen code snippet in C -->
+</div>
+
+<script>
+    function showCode(algorithm) {
+        var snippets = document.getElementsByClassName("code-snippet");
+        for (var i = 0; i < snippets.length; i++) {
+            snippets[i].style.display = "none";
         }
-    </script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+        document.getElementById(algorithm).style.display = "block";
+    }
+</script>
+
 </body>
 </html>
