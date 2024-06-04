@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #FFFFFF;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .code {
+            background-color: #212121;
+            color: #CCCCCC;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .toggle-btn {
+            background-color: #FFFFFF;
+            color: #000000;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        pre {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Algorithms</h1>
+        
+        <div class="code" id="quick-sort">
+            <h2>Quick Sort</h2>
+            <pre>
+                <code class="language-c">
+                    // Quick sort code in C
+                </code>
+            </pre>
+        </div>
+        
+        <div class="code" id="merge-sort">
+            <h2>Merge Sort</h2>
+            <pre>
+                <code class="language-c">
+                    // Merge sort code in C
+                </code>
+            </pre>
+        </div>
+        
+        <!-- Add other algorithms here -->
+        
+        <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+    
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+        }
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>
