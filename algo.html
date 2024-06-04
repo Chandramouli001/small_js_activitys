@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Algorithms</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             background-color: #111;
@@ -11,24 +12,11 @@
             font-family: Arial, sans-serif;
             padding: 20px;
         }
-        nav {
-            background-color: #222;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
+        .nav-link {
+            color: #fff !important;
         }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
+        .nav-link:hover {
+            color: #ccc !important;
         }
         .code-snippet {
             display: none;
@@ -37,16 +25,17 @@
 </head>
 <body>
 
-<nav>
-    <ul>
-        <li><a href="#" onclick="showCode('quickSort')">Quick Sort</a></li>
-        <li><a href="#" onclick="showCode('mergeSort')">Merge Sort</a></li>
-        <li><a href="#" onclick="showCode('knapsack')">0/1 Knapsack</a></li>
-        <li><a href="#" onclick="showCode('floydWarshall')">Floyd Warshall</a></li>
-        <li><a href="#" onclick="showCode('strassen')">Strassen's Algorithm</a></li>
-        <li><a href="#" onclick="showCode('tsp')">TSP</a></li>
-        <li><a href="#" onclick="showCode('matrixChain')">Matrix Chain Multiplication</a></li>
-        <li><a href="#" onclick="showCode('nQueen')">N Queen</a></li>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Algorithms</a>
+    <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showCode('quickSort')">Quick Sort</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showCode('mergeSort')">Merge Sort</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showCode('knapsack')">0/1 Knapsack</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showCode('floydWarshall')">Floyd Warshall</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showCode('strassen')">Strassen's Algorithm</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showCode('tsp')">TSP</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showCode('matrixChain')">Matrix Chain Multiplication</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showCode('nQueen')">N Queen</a></li>
     </ul>
 </nav>
 
